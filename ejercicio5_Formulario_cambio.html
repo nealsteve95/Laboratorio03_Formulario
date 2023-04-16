@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="estilos_formulario.css">
+    <title>Document</title>
+    <script type="text/javascript">
+        function convertir () {
+            var valore = parseInt(document.getElementById("valor").value);
+            var resultado = 0;
+            var dolar = 3.85;
+            var euro = 4.10;
+            if (document.getElementById("uno").checked){
+                resultado = valore / dolar;
+                alert("El cambio de Soles a Dolares es: $" + resultado.toFixed(2))
+            }
+            else if (document.getElementById("dos").checked){
+                resultado = valore / euro;
+                alert("El cambio de Soles a Euros es: " + resultado.toFixed(2)) 
+            }
+            else{
+                alert("Tienes que seleccionar un campo de cambio: ")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>PROGRAMA DE TASA DE CAMBIO  - TECSUP</h3>
+    <form class="formulario">
+        <p>Seleccionar cambio de moneda:</p>
+        <!--los inputs con type radio son los habilitados para seleccionar-->
+        <!--el type para los inputs permite definir que accion se hara-->
+        <input type="radio" name="cambio" id="uno" >Dolar
+        <input type="radio" name="cambio" id="dos"> Euro
+        <p>Ingrese el monto en soles: </p>
+        <input type="number" id="valor" min="1" max="1000000">
+        <input type="button" id="cotizador" value="Cotizar" onclick="convertir()">
+    </form>
+</body>
+</html>
